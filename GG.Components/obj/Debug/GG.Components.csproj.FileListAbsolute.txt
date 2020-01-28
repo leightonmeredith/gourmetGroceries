@@ -1,0 +1,10 @@
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\bin\Debug\GG.Components.dll.config
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\bin\Debug\GG.Components.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\bin\Debug\GG.Components.pdb
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\bin\Debug\EntityFramework.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\bin\Debug\EntityFramework.xml
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\obj\Debug\GG.Components.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Components\obj\Debug\GG.Components.pdb
+C:\Users\M\Documents\Visual Studio 2015\Projects\GourmetGroceries\GG.Components\obj\Debug\GG.Components.csprojResolveAssemblyReference.cache

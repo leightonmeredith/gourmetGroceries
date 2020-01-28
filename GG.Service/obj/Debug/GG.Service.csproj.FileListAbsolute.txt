@@ -1,0 +1,14 @@
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\GG.Service.dll.config
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\GG.Service.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\GG.Service.pdb
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\EntityFramework.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\EntityFramework.SqlServer.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\GG.Components.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\GG.Data.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\GG.Components.pdb
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\GG.Data.pdb
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\EntityFramework.xml
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\bin\Debug\EntityFramework.SqlServer.xml
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\obj\Debug\GG.Service.csprojResolveAssemblyReference.cache
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\obj\Debug\GG.Service.dll
+c:\users\m\documents\visual studio 2015\Projects\GourmetGroceries\GG.Service\obj\Debug\GG.Service.pdb

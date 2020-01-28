@@ -1,0 +1,253 @@
+﻿<section ng-controller="recipeEditCtrl as vm">
+    <div class="page-title">
+        <div class="pattren-overlay">
+            <h1>{{vm.title}}</h1>
+        </div>
+    </div>
+    <div class="container">
+        <br />
+        <div class="row">
+            <div class="col-sm-8">
+                <form action="" class="form-horizentol contact-form">
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <div class="input-has-icon left-icon"><span class="fa fa-edit"></span><input class="form-control" ng-model="vm.recipe.Name" placeholder="Recipe name" type="text"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-has-icon left-icon"><span class="fa fa-envelope-o"></span><input class="form-control" ng-model="vm.recipe.Description" placeholder="Description" type="text"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div action="/upload" class="dropzone dz-clickable" id="my-awesome-dropzone">
+                            <div class="dz-message">
+                                <img src="http://evobicycle.com/wp-content/themes/evo/images/no-image.png" alt="Placeholder" width="100" height="100">
+                            </div>
+                            <input type="file" name="file" />
+                        </div>
+                        <!--<div class="input-has-icon left-icon"><span class="fa fa-comments"></span><textarea rows="5" class="form-control" placeholder="Dropzone Img soon"></textarea></div>-->
+                    </div>
+                    <div ng-show="vm.recipe.Id !== 0">
+                        <div class="panel-group" id="ingredientsAccordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel">
+                                <div class="panel-heading" role="tab" id="headingIngredients">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#ingredientsAccordion" href="" data-target="#collapseIngredients" aria-expanded="false" aria-controls="collapseOne">
+                                            Ingredients
+                                            <span class="fa toggle-icon"></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div style="height: 0px;" aria-expanded="false" id="collapseIngredients" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingIngredients">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-2">
+                                                <input class="form-control input-sm" placeholder="Count" ng-model="vm.ingredient.Count">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input class="form-control input-sm" placeholder="Measure" ng-model="vm.ingredient.Measurement">
+                                            </div>
+                                            <div class="col-xs-3">
+                                                <input class="form-control input-sm" placeholder="Desc." ng-model="vm.ingredient.Description">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <select class="form-control" ng-model="vm.ingredient.Ingredient" ng-options="item.Name + ' - ' + item.IngredientCategory.Name for item in vm.ingredientMaster | orderBy:['IngredientCategory.Name', 'Name'] track by item.Id"></select>
+                                            </div>
+                                            <input type="button" value="Add " ng-click="vm.addIngredient(vm.ingredient)" class="btn btn-theme btn-submit">
+                                        </div>
+                                        <br />
+                                        <div class="row" ng-repeat="item in vm.ingredients ">
+                                            <div>
+                                                {{item.Count}} {{item.Measurement}} {{item.Description}} {{item.Ingredient.Brand}} {{item.Ingredient.Type}} {{item.Ingredient.Name}}
+
+                                                <a href="" ng-click="vm.editIngredient(item)"><span class="text-theme">Edit</span></a>
+                                                <a href="" ng-click="vm.removeIngredient(item)"><span class="text-theme">Delete</span></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                              
+                        </div>
+                        <br />
+                    </div>
+                    <div ng-show="vm.recipe.Id !== 0">
+                        <div class="panel-group" id="directionsAccordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel">
+                                <div class="panel-heading" role="tab" id="headingDirections">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#directionsAccordion" href="" data-target="#collapseDirections" aria-expanded="false" aria-controls="collapseOne">
+                                            Directions
+                                            <span class="fa toggle-icon"></span>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div style="height: 0px;" aria-expanded="false" id="collapseDirections" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingDirections">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-xs-2">
+                                                <input type="number" class="form-control input-sm" placeholder="Step" ng-model="vm.direction.Step">
+                                            </div>
+                                            <div class="col-xs-8">
+                                                <input class="form-control input-sm" placeholder="Direction" ng-model="vm.direction.Instruction">
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="button" value="add" ng-click="vm.adddirection(vm.direction)" class="btn btn-theme btn-submit">
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="row" ng-repeat="direction in vm.directions | orderBy: 'Step'">
+                                            <div>
+                                                {{direction.Step}} - {{direction.Instruction}}
+                                                <a href="" ng-click="vm.editDirection(direction)"><span class="text-theme">Edit</span></a>
+                                                <a href="" ng-click="vm.removeDirection(direction)"><span class="text-theme">Delete</span></a>
+                                                <hr />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                    <div class="btns-row">
+                        <input type="button" value="Save Recipe" class="btn btn-theme btn-submit" ng-click="vm.saveRecipe()">
+                        <input ng-show="vm.recipe.Id !== 0" type="button" value="Add To Grocery List" class="btn btn-theme btn-submit">
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <ul class="list-withicons">
+                    <li>
+                        <span class="fa fa-file-text-o"></span>
+                        <a href="" ng-click="vm.viewIngredientsRedirect()"><h4>Grocery List</h4></a>
+                        <p>Eum doctus numquam referrentur <br> ad, minim commodo expetenda per </p>
+                    </li>
+                    <li>
+                        <span class="fa fa-th-list"></span>
+                        <a href="" ng-click="vm.searchRecipeRedirect()"><h4>Menu</h4></a>
+                        <p>Eum doctus numquam referrentur <br> ad, minim commodo expetenda per </p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Modals -->
+<!-- MAY BE A GOOD IDEA TO HAVE THIS IN A DIRECTIVE -->
+<div id="modalAddIngredients" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ingredients</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-xs-2">
+                        <strong>Count:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. '4')" ng-model="vm.ingredient.Count">
+                    </div>
+                    <div class="col-xs-2">
+                        <strong>Measurement:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. 'lbs')" ng-model="vm.ingredient.Measurement">
+                    </div>
+                    <div class="col-xs-3">
+                        <strong>Description:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. 'boneless')" ng-model="vm.ingredient.Description">
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Category:</strong><br />
+                        <select ng-model="vm.ingredient.Ingredient" ng-options="item.Name + ' - ' + item.IngredientCategory.Name for item in vm.ingredientMaster | orderBy:['IngredientCategory.Name', 'Name'] track by item.Id"></select>
+                    </div>
+                    <!--THIS IS WHAT I WANT...
+                    <div class="col-xs-3">
+                        <strong>Brand:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. 'Purdue')" ng-model="vm.ingredient.Brand">
+                    </div>
+                    <div class="col-xs-3">
+                        <strong>Name:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. 'chicken')" ng-model="vm.ingredient.Name">
+                    </div>
+                    <div class="col-xs-3">
+                        <strong>Type:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. 'breast')" ng-model="vm.ingredient.Type">
+                    </div>-->
+                    <div class="col-xs-1">
+                        <strong></strong><br />
+                        <button ng-click="vm.addIngredient(vm.ingredient)">Add</button>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div><strong>Ingredients</strong></div>
+                </div>
+                <hr />
+                <div class="row" ng-repeat="item in vm.ingredients ">
+                    <div>
+                        {{item.Count}} {{item.Measurement}} {{item.Description}} {{item.Ingredient.Brand}} {{item.Ingredient.Type}} {{item.Ingredient.Name}}
+
+                        <!--<span data-placement="bottom" data-original-title="Delete" class="deletebutton btn btn-default"><strong><i class="fa fa-trash-o fa-lg"></i></strong></span>-->
+                        <button ng-click="vm.editIngredient(item)">Edit</button>
+                        <button ng-click="vm.removeIngredient(item)">Rem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" ng-click="vm.saveIngredients(vm.recipe.Id, vm.ingredients)">Save</button>
+                <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modalAddDirections" class="modal fade">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Ingredients</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-xs-2">
+                        <strong>Step:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. '4')" ng-model="vm.direction.Step">
+                    </div>
+                    <div class="col-xs-8">
+                        <strong>Direction:</strong><br />
+                        <input class="form-control input-sm" placeholder="(eg. 'add egg to mixture')" ng-model="vm.direction.Instruction">
+                    </div>
+                    <div class="col-xs-1">
+                        <strong></strong><br />
+                        <button ng-click="vm.addDirection(vm.direction)">Add</button>
+                    </div>
+                </div>
+                <hr />
+                <div class="row">
+                    <div><strong>Directions</strong></div>
+                </div>
+                <hr />
+                <div class="row" ng-repeat="direction in vm.directions | orderBy: 'Step'">
+                    <div>
+                        {{direction.Step}} - {{direction.Instruction}}
+                        <button ng-click="vm.editDirection(direction)">Edit</button>
+                        <button ng-click="vm.removeDirection(direction)">Rem</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" ng-click="vm.saveDirections(vm.recipe.Id, vm.directions)">Save</button>
+                <button class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

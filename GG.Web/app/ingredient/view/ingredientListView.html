@@ -1,0 +1,155 @@
+﻿<section ng-controller="ingredientListViewCtrl as vm">
+    <div class="page-title">
+        <div class="pattren-overlay">
+            <h1>{{vm.title}}</h1>
+        </div>
+        <br />
+        <br />
+        <div class="jobs-bannernav">
+            <div class="container">
+                <ul class="nav nav-justified" role="tablist">
+                    <li role="presentation"><a href="" aria-controls="home" role="tab" data-toggle="tab" ng-click="vm.setSubDisplay('all')">All Ingredients <span class="fa fa-angle-down"></span></a></li>
+                    <li role="presentation" class="active"><a href="" aria-controls="profile" role="tab" data-toggle="tab" ng-click="vm.setSubDisplay('selected')">Selected Ingredients <span class="fa fa-angle-down"></span></a></li>
+                    <li role="presentation"><a href="" aria-controls="messages" role="tab" data-toggle="tab" ng-click="vm.setSubDisplay('recipe')">Selected Recipes<span class="fa fa-angle-down"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div ng-show="vm.subDisplay == 'all'">
+            <div class="panel panel-default">
+                <div class="panel-heading">All Ingredients</div>
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, possit fastidii nominavi duo no, te viris prompta mea. Ius no vivendo delicata accommodare, eum an decore epicuri iudicabit, erat prompta facilisis sit ei. Pri ancillae intellegat comprehensam ne, eos fuisset eligendi ex
+                </div>
+            </div>
+            <input class="form-control input-sm" placeholder="Filter Recipe Master List" ng-model="vm.masterIngredientSearch">
+            <br />
+            <div class="table-responsive" style="height:35em; overflow:auto;">
+                <table class="table table-striped">
+                    <tr>
+                        <th width="23"></th>
+                        <th><strong>Category</strong></th>
+                        <th><strong>Shopping Item</strong></th>
+                        <th><strong>Brand</strong></th>
+                        <th><strong>Blah</strong></th>
+                        <th><strong>Type</strong></th>
+                        <th></th>
+                        <th width="23"></th>
+                    </tr>
+                    <tr ng-repeat="ingredient in vm.ingredientsMaster | filter: vm.masterIngredientSearch">
+                        <td></td>
+                        <td>{{ingredient.IngredientCategory.Name}}</td>
+                        <td>{{ingredient.Name}}</td>
+                        <td>tbd</td>
+                        <td>tbd</td>
+                        <td>tbd</td>
+                        <td align="right">
+                            <a ng-show="ingredient.IsRecipeBaggit" class="btn btn-info btn-xs" href="javascript:void(0);" ng-disabled="ingredient.IsRecipeBaggit">RecipeItem</a>
+                            <a ng-hide="ingredient.IsBaggit" class="btn btn-info btn-xs" href="javascript:void(0);" ng-click="vm.addIngredientToList(ingredient)">Add</a>
+                            <a ng-show="ingredient.IsBaggit" class="btn btn-info btn-xs" href="javascript:void(0);" ng-click="vm.removeIngredientFromList(ingredient)">Remove</a>
+                            <a class="btn btn-info btn-xs" href="javascript:void(0);" ng-click="vm.editIngredientRedirect(ingredient.Id)">Edit</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div ng-show="vm.subDisplay == 'selected'">
+            <div class="panel panel-default">
+                <div class="panel-heading">Selected Ingredients</div>
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, possit fastidii nominavi duo no, te viris prompta mea. Ius no vivendo delicata accommodare, eum an decore epicuri iudicabit, erat prompta facilisis sit ei. Pri ancillae intellegat comprehensam ne, eos fuisset eligendi ex
+                </div>
+            </div>
+            <input class="form-control input-sm" placeholder="Filter Custom List" ng-model="vm.customIngredientSearch">
+            <br />
+            <div class="table-responsive" style="height:35em; overflow:auto;">
+                <table class="table table-striped">
+                    <tr>
+                        <th width="23"></th>
+                        <th><strong>Category</strong></th>
+                        <th><strong>Shopping Item</strong></th>
+                        <th><strong>Brand</strong></th>
+                        <th><strong>Blah</strong></th>
+                        <th><strong>Type</strong></th>
+                        <th></th>
+                        <th width="23"></th>
+                    </tr>
+                    <tr ng-repeat="item in vm.customIngredients | filter: vm.customIngredientSearch">
+                        <td></td>
+                        <td>{{item.Ingredient.IngredientCategory.Name}}</td>
+                        <td>{{item.Ingredient.Name}}</td>
+                        <td>tbd</td>
+                        <td>tbd</td>
+                        <td>tbd</td>
+                        <td align="right">
+                            <a ng-show="item.Ingredient.IsRemoved" class="btn btn-info btn-xs" href="javascript:void(0);" ng-click="vm.addCustomIngredientToList(item)">Undo</a>
+                            <a ng-hide="item.Ingredient.IsRemoved" ng class="btn btn-info btn-xs" href="javascript:void(0);" ng-click="vm.removeCustomIngredientFromList(item)">Remove</a>
+                        </td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div ng-show="vm.subDisplay == 'recipe'">
+            <div class="panel panel-default" ng-show="vm.subDisplay == 'recipe'">
+                <div class="panel-heading">Selected Recipes</div>
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, possit fastidii nominavi duo no, te viris prompta mea. Ius no vivendo delicata accommodare, eum an decore epicuri iudicabit, erat prompta facilisis sit ei. Pri ancillae intellegat comprehensam ne, eos fuisset eligendi ex
+                </div>
+            </div>
+            <input class="form-control input-sm" placeholder="Filter Recipe List" ng-model="vm.recipeSearch.Recipe.Name">
+            <br />
+            <div class="row" style="height:35em; overflow:auto;">
+                <div class="col-sm-12">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel" ng-repeat="item in vm.recipeIngredients | filter: vm.recipeSearch:strict">
+                            <div class="panel-heading" role="tab" id="{{item.Id}}">
+                                <h4 class="panel-title">
+                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="" data-target="#collapse{{item.Id}}" aria-expanded="false" aria-controls="collapseOne">
+                                        {{item.Recipe.Name}}
+                                        <span class="fa toggle-icon"></span>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div style="height: 0px;" aria-expanded="false" id="collapse{{item.Id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{item.Id}}">
+                                <div class="table-responsive" style="height:20em; overflow:auto;">
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <th width="23"></th>
+                                            <th><strong>Category</strong></th>
+                                            <th><strong>Shopping Item</strong></th>
+                                            <th><strong>Brand</strong></th>
+                                            <th><strong>Blah</strong></th>
+                                            <th><strong>Type</strong></th>
+                                            <td align="right">
+                                                <a ng-show="item.Recipe.IsRemoved" class="btn btn-info btn-sm" href="javascript:void(0);" ng-click="vm.addRecipeToList(item)">Undo</a>
+                                                <a ng-hide="item.Recipe.IsRemoved" class="btn btn-danger btn-sm" href="javascript:void(0);" ng-click="vm.removeRecipeFromList(item)"><i class="fa fa-remove"></i> Remove From List</a>
+                                            </td>
+                                            <th width="23"></th>
+                                        </tr>
+                                        <tr ng-repeat="r in item.Recipe.Ingredients">
+                                            <td></td>
+                                            <td>{{r.Ingredient.IngredientCategory.Name}}</td>
+                                            <td>{{r.Ingredient.Name}}</td>
+                                            <td>tbd</td>
+                                            <td>tbd</td>
+                                            <td>tbd</td>
+                                            <td align="right">
+                                                <!--<a class="btn btn-info btn-xs" href="javascript:void(0);">Add</a>
+                                                <a class="btn btn-info btn-xs" href="javascript:void(0);">Remove</a>-->
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

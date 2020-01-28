@@ -1,0 +1,54 @@
+﻿<section ng-controller="recipeDetailCtrl as vm">
+    <div class="page-title">
+        <div class="pattren-overlay">
+            <h1>{{vm.title}}</h1>
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>{{vm.recipe.Name}}</h2>
+                <p>{{vm.recipe.Description}}</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="presentation-slider">
+                        <ul>
+                            <li><img src="assets/images/presentation.png" alt=""></li>
+                            <li><img src="assets/images/presentation.png" alt=""></li>
+                            <li><img src="assets/images/presentation.png" alt=""></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="btns-row">
+                        <a ng-click="vm.addRecipeToCustomList(vm.recipe.Id)" href="" class="btn btn-theme">Add to Grocery List</a>
+                        <a ng-click="vm.viewIngredientsRedirect()" href="" class="btn btn-theme">View Groceries</a>
+                        <a ng-click="vm.editRecipeRedirect(vm.recipe.Id)" href="" class="btn btn-theme">Edit Recipe</a>
+                    </div>
+                    <br />
+                    <div ng-repeat="item in vm.recipe.Ingredients">
+                        {{item.Count}} {{item.Measurement}} {{item.Description}} {{item.Ingredient.Brand}} {{item.Ingredient.Type}} {{item.Ingredient.Name}}
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row" ng-repeat="direction in vm.recipe.Directions | orderBy: 'Step'">
+                <div>
+                    {{direction.Step}} - {{direction.Instruction}}
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        $('.main-slider ul, .presentation-slider ul').bxSlider({
+            auto: true,
+            pager: false,
+            nextText: '&#xf105;',
+            prevText: '&#xf104;',
+        })
+    })
+</script>

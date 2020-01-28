@@ -1,0 +1,40 @@
+﻿<section ng-controller="ingredientEditCtrl as vm">
+    <div class="page-title">
+        <div class="pattren-overlay">
+            <h1>{{vm.title}}</h1>
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="container">
+            <br />
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="form-control input-sm" placeholder="Ingredient Name" ng-model="vm.ingredient.Name">
+                </div>
+                <div class="col-xs-3">
+                    <select class="form-control" ng-model="vm.ingredient.IngredientCategory" ng-options="item.Name for item in vm.ingredientCategories track by item.Id | orderBy: 'Name'"></select>
+                </div>
+            </div>
+            <br />
+            <div class="btns-row">
+                <input type="button" value="Save Ingredient" ng-click="vm.saveIngredientToMaster(vm.ingredient)" class="btn btn-theme btn-submit">
+                <input ng-if="vm.ingredient.Id !== 0" type="button" value="New Ingredient" ng-click="vm.editIngredientRedirect(0)" class="btn btn-theme btn-submit">
+            </div>
+        </div>
+    </div>
+    <div class="page-section offwhite">
+        <div class="container">
+            <br />
+            <div class="row">
+                <div class="col-xs-6">
+                    <input class="form-control input-sm" placeholder="Category Name" ng-model="vm.ingredientCategory.Name">
+                </div>
+            </div>
+            <br />
+            <div class="btns-row">
+                <input type="button" value="Save Category" ng-click="vm.saveIngredientCategory(vm.ingredientCategory)" class="btn btn-theme btn-submit">
+                <!--<input type="button" value="Create Ingredient" class="btn btn-theme btn-submit">-->
+            </div>
+        </div>
+    </div>
+</section>

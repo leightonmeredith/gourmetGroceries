@@ -1,0 +1,111 @@
+﻿<section ng-controller="dashboardViewCtrl as vm">
+    <div class="page-title">
+        <div class="pattren-overlay">
+            <h1>{{vm.title}}</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="searchfrom-section">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="input-has-icon left-icon">
+                        <span class="fa fa-globe"></span>
+                        <input class="form-control" ng-model="vm.recipeName" placeholder="Find a recipe" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <!--<button class="btn btn-lg btn-block btn-theme" ng-click="vm.search(vm.recipeName)"><span class="fa fa-search"></span> Search</button>-->
+                </div>
+            </div>
+        </div>
+        <div class="page-section">
+            <div class="custom-controls pull-right">
+                <span id="slider-prev"></span>
+                <span id="slider-next"></span>
+            </div>
+            <h2 class="with-borderline"><span>Be Inspired!</span><em></em></h2>
+            <ul class="slider-gallery clearfix">
+                <li class="logo">
+                    <img src="assets/images/portfolio1.jpg" alt="">
+                    <div class="overlay-data top">
+                        <div class="overlay-inner">
+                            <div>
+                                <h4>Work Title Here</h4>
+                            </div>
+                        </div>
+                        <a href="assets/images/portfolio1.jpg" title="" class="zoom fancybox" rel="group1a"><span class="fa fa-plus"></span></a>
+                    </div>
+                </li>
+                <li class="template">
+                    <img src="assets/images/portfolio2.jpg" alt="">
+                    <div class="overlay-data right">
+                        <div class="overlay-inner">
+                            <div>
+                                <h4>Work Title Here</h4>
+                            </div>
+                        </div>
+                        <a href="assets/images/portfolio2.jpg" title="" class="zoom fancybox" rel="group2"><span class="fa fa-plus"></span></a>
+                    </div>
+                </li>
+                <li class="business">
+                    <img src="assets/images/portfolio3.jpg" alt="">
+                    <div class="overlay-data bottom">
+                        <div class="overlay-inner">
+                            <div>
+                                <h4>Work Title Here</h4>
+                            </div>
+                        </div>
+                        <a href="assets/images/portfolio3.jpg" title="" class="zoom fancybox" rel="group3"><span class="fa fa-plus"></span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="page-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <a href="" ng-click="vm.viewIngredientsRedirect()"><h4 class=" with-icon"><span class="fa fa-file-text-o"></span> Grocery List</h4></a>
+                    <p>Eum doctus numquam referrentur <br> ad, minim commodo expetenda per </p>
+                </div>
+                <div class="col-sm-3">
+                    <a href="" ng-click="vm.editRecipeRedirect(0)"><h4 class="with-icon"><span class="fa fa-magic"></span> Create Recipe</h4></a>
+                    <p>Eum doctus numquam referrentur <br> ad, minim commodo expetenda per </p>
+                </div>
+                <div class="col-sm-3">
+                    <h4 class="with-icon"><span class="fa fa-heart"></span> Favorites</h4>
+                    <p>Eum doctus numquam referrentur <br> ad, minim commodo expetenda per </p>
+                </div>
+                <div class="col-sm-3">
+                    <h4 class="with-icon"><span class="fa fa-cog"></span> Settings</h4>
+                    <p>Eum doctus numquam referrentur <br> ad, minim commodo expetenda per </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    //FIGURE OUT HOW TO GET THIS TO THE CONTROLLER
+    $(function () {
+        $('.slider-gallery').bxSlider({
+            auto: true,
+            slideWidth: 370,
+            slideMargin: $(window).width() > 767 ? 30 : 0,
+            pager: false,
+            minSlides: $(window).width() > 767 ? 3 : 1,
+            maxSlides: $(window).width() > 767 ? 3 : 1,
+            moveSlides: 1,
+            nextSelector: '#slider-next',
+            prevSelector: '#slider-prev',
+            nextText: '&#xf105;',
+            prevText: '&#xf104;',
+        })
+        $('.main-slider ul').bxSlider({
+            auto: true,
+            pager: false,
+            nextText: '&#xf105;',
+            prevText: '&#xf104;',
+        })
+        $(".fancybox").fancybox();
+    })
+</script>

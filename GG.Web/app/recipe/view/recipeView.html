@@ -1,0 +1,104 @@
+﻿<section ng-controller="recipeViewCtrl as vm">
+    <div class="page-title">
+        <div class="pattren-overlay">
+            <h1>{{vm.title}}</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="searchfrom-section">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="input-has-icon left-icon">
+                        <span class="fa fa-globe"></span>
+                        <input class="form-control" ng-model="vm.recipeName" placeholder="Find a recipe" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-lg btn-block btn-theme" ng-click="vm.searchRecipes(vm.recipeName)"><span class="fa fa-search"></span> Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="page-content-area search-result-page">
+        <div class="container">            
+            <div class="search-content">
+                <h4 class="with-icon"><span class="fa fa-briefcase"></span> ABOUT 384,907 RESULTS</h4>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 col-md-3">
+                    <div class="filter-sidebar">
+                        <h3><span class="fa fa-sliders"></span> Job Filter </h3>
+                        <a class="collapse-link" role="button" data-toggle="collapse" href="#field-collapse" aria-expanded="true">Field <span class="fa fa-caret-down"></span></a>
+                        <div class="collapse in collaped-area" id="field-collapse">
+                            <ul class="list-unstyled">
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Accounting (342 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Admin &amp; Clerical (143 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Banking &amp; Finance (66 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Contract &amp; Freelance (12 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Business Development (212 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Ecommerce (958 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Web Design (576 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Web Programming (543 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Other - Web Development (67 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Website Project Management (45 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Nurse (546 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Health Care (82 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> General Labor (11 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Pharmaceutical (109 jobs)</label></li>
+                            </ul>
+                        </div>
+                        <a class="collapse-link" role="button" data-toggle="collapse" href="#career-collapse" aria-expanded="false">Career level <span class="fa fa-caret-down"></span></a>
+                        <div class="collapse collaped-area" id="career-collapse">
+                            <ul class="list-unstyled">
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Accounting (342 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Admin &amp; Clerical (143 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Banking &amp; Finance (66 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Contract &amp; Freelance (12 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Business Development (212 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Ecommerce (958 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Web Design (576 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Web Programming (543 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Other - Web Development (67 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Website Project Management (45 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Nurse (546 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Health Care (82 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> General Labor (11 jobs)</label></li>
+                                <li><label><input type="checkbox" name="" id="" class="hidden-check"><span class="virtual-checkbox"></span> Pharmaceutical (109 jobs)</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-9">
+                    <ul class="list-results">
+                        <li ng-repeat="recipe in vm.recipes | filter: vm.search">
+                            <div class="post-thumb">
+                                <img src="assets/images/result-thumb.jpg" alt="">
+                            </div>
+                            <div class="post-content">
+                                <h3><a href="" ng-click="vm.viewRecipeRedirect(recipe.Id)">{{recipe.Name}}</a></h3>
+                                <p class="justline-2">{{recipe.Description}}</p>
+                                <div class="post-footer">
+                                    <ul>
+                                        <li><span class="fa fa-caret-right"></span> <span class="text-theme">Position:</span> <span>Web Designer</span></li>
+                                        <li><span class="fa fa-caret-right"></span> <span class="text-theme">Required:</span> <span>Experience</span></li>
+                                        <li><span class="fa fa-caret-right"></span> <span class="text-theme">Work city:</span> <span>Bucharest</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="pagination">
+                        <li><a href="#"><span class="fa fa-angle-left"></span></a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="active"><span>2</span></li>
+                        <li><a href="#"><span class="fa fa-angle-right"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+

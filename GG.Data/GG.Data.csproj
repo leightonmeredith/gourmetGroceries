@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6E620A44-69D3-45C3-86F0-3FF0BC051CE4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GG.Data</RootNamespace>
+    <AssemblyName>GG.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GGDataContext.cs" />
+    <Compile Include="Migrations\201509060528500_Initialization.cs" />
+    <Compile Include="Migrations\201509060528500_Initialization.Designer.cs">
+      <DependentUpon>201509060528500_Initialization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509062150592_addDescriptionToRecipe.cs" />
+    <Compile Include="Migrations\201509062150592_addDescriptionToRecipe.Designer.cs">
+      <DependentUpon>201509062150592_addDescriptionToRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509062351559_AddDirectionObject.cs" />
+    <Compile Include="Migrations\201509062351559_AddDirectionObject.Designer.cs">
+      <DependentUpon>201509062351559_AddDirectionObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509070409153_SetForeignKeyId.cs" />
+    <Compile Include="Migrations\201509070409153_SetForeignKeyId.Designer.cs">
+      <DependentUpon>201509070409153_SetForeignKeyId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509070427585_removeMenuIdFromRecipe.cs" />
+    <Compile Include="Migrations\201509070427585_removeMenuIdFromRecipe.Designer.cs">
+      <DependentUpon>201509070427585_removeMenuIdFromRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509121854584_AddGroceryList.cs" />
+    <Compile Include="Migrations\201509121854584_AddGroceryList.Designer.cs">
+      <DependentUpon>201509121854584_AddGroceryList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509122049127_removeGrocery.cs" />
+    <Compile Include="Migrations\201509122049127_removeGrocery.Designer.cs">
+      <DependentUpon>201509122049127_removeGrocery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509122050372_addGrocery.cs" />
+    <Compile Include="Migrations\201509122050372_addGrocery.Designer.cs">
+      <DependentUpon>201509122050372_addGrocery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509160128538_groceryListWithRecipeId.cs" />
+    <Compile Include="Migrations\201509160128538_groceryListWithRecipeId.Designer.cs">
+      <DependentUpon>201509160128538_groceryListWithRecipeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509180019259_removeGroceryListAndItem.cs" />
+    <Compile Include="Migrations\201509180019259_removeGroceryListAndItem.Designer.cs">
+      <DependentUpon>201509180019259_removeGroceryListAndItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509180413243_addRecipeIngredient.cs" />
+    <Compile Include="Migrations\201509180413243_addRecipeIngredient.Designer.cs">
+      <DependentUpon>201509180413243_addRecipeIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509190114470_addCustomIngredient.cs" />
+    <Compile Include="Migrations\201509190114470_addCustomIngredient.Designer.cs">
+      <DependentUpon>201509190114470_addCustomIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509191405595_remCustomIng.cs" />
+    <Compile Include="Migrations\201509191405595_remCustomIng.Designer.cs">
+      <DependentUpon>201509191405595_remCustomIng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509191417120_addCustomIng.cs" />
+    <Compile Include="Migrations\201509191417120_addCustomIng.Designer.cs">
+      <DependentUpon>201509191417120_addCustomIng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509191816329_nullableRecipeId.cs" />
+    <Compile Include="Migrations\201509191816329_nullableRecipeId.Designer.cs">
+      <DependentUpon>201509191816329_nullableRecipeId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509201945562_refactorIngredient.cs" />
+    <Compile Include="Migrations\201509201945562_refactorIngredient.Designer.cs">
+      <DependentUpon>201509201945562_refactorIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509202000209_addIngredientIdToRecipeIngredient.cs" />
+    <Compile Include="Migrations\201509202000209_addIngredientIdToRecipeIngredient.Designer.cs">
+      <DependentUpon>201509202000209_addIngredientIdToRecipeIngredient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509210238126_makeSomeIdsNullable.cs" />
+    <Compile Include="Migrations\201509210238126_makeSomeIdsNullable.Designer.cs">
+      <DependentUpon>201509210238126_makeSomeIdsNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GG.Components\GG.Components.csproj">
+      <Project>{6dccc9b9-2bf1-40bf-9dc7-649228dbf9c0}</Project>
+      <Name>GG.Components</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201509060528500_Initialization.resx">
+      <DependentUpon>201509060528500_Initialization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509062150592_addDescriptionToRecipe.resx">
+      <DependentUpon>201509062150592_addDescriptionToRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509062351559_AddDirectionObject.resx">
+      <DependentUpon>201509062351559_AddDirectionObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509070409153_SetForeignKeyId.resx">
+      <DependentUpon>201509070409153_SetForeignKeyId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509070427585_removeMenuIdFromRecipe.resx">
+      <DependentUpon>201509070427585_removeMenuIdFromRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509121854584_AddGroceryList.resx">
+      <DependentUpon>201509121854584_AddGroceryList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509122049127_removeGrocery.resx">
+      <DependentUpon>201509122049127_removeGrocery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509122050372_addGrocery.resx">
+      <DependentUpon>201509122050372_addGrocery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509160128538_groceryListWithRecipeId.resx">
+      <DependentUpon>201509160128538_groceryListWithRecipeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509180019259_removeGroceryListAndItem.resx">
+      <DependentUpon>201509180019259_removeGroceryListAndItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509180413243_addRecipeIngredient.resx">
+      <DependentUpon>201509180413243_addRecipeIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509190114470_addCustomIngredient.resx">
+      <DependentUpon>201509190114470_addCustomIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509191405595_remCustomIng.resx">
+      <DependentUpon>201509191405595_remCustomIng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509191417120_addCustomIng.resx">
+      <DependentUpon>201509191417120_addCustomIng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509191816329_nullableRecipeId.resx">
+      <DependentUpon>201509191816329_nullableRecipeId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509201945562_refactorIngredient.resx">
+      <DependentUpon>201509201945562_refactorIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509202000209_addIngredientIdToRecipeIngredient.resx">
+      <DependentUpon>201509202000209_addIngredientIdToRecipeIngredient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509210238126_makeSomeIdsNullable.resx">
+      <DependentUpon>201509210238126_makeSomeIdsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
